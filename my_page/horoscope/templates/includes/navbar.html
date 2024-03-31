@@ -1,0 +1,9 @@
+{% load my_filter %}
+
+<nav>
+    <a href="{% url 'horoscope-index' %}">Главная</a>
+    <a href="https://7days.ru/astro/horoscope/planety-znakov-zodiaka-komu-chto-sootvetstvuet.htm">Источник</a>
+    {% for znak, description_znak in znaks.items %}
+    <a href="{% url 'horoscope-name' znak_zodiac=znak %}">{{ description_znak|split|first }}</a>
+    {% endfor %}
+</nav>
